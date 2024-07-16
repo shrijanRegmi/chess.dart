@@ -957,7 +957,7 @@ class Chess {
     }
 
     /* if we moved the king */
-    if (board[move.to]!.type == KING) {
+    if (board[move.to]?.type == KING) {
       kings[board[move.to]!.color] = move.to;
 
       /* if we castled, move the rook next to the king */
@@ -1044,7 +1044,7 @@ class Chess {
     final them = swap_color(turn);
 
     board[move.from] = board[move.to];
-    board[move.from]!.type = move.piece; // to undo any promotions
+    board[move.from]?.type = move.piece; // to undo any promotions
     board[move.to] = null;
 
     if ((move.flags & BITS_CAPTURE) != 0) {
